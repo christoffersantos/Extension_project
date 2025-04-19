@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Improved focus styles */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-500;
+  }
+
+  /* Skip to main content link */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+}
+
+.theme-card {
+  @apply p-6 rounded-xl shadow-lg transition-all duration-300 cursor-pointer;
+  min-height: 200px;
+}
+
+.theme-1 { 
+  @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 focus:ring-offset-2; 
+}
+.theme-2 { 
+  @apply bg-green-600 text-white hover:bg-green-700 focus:ring-2 focus:ring-green-300 focus:ring-offset-2; 
+}
+.theme-3 { 
+  @apply bg-purple-600 text-white hover:bg-purple-700 focus:ring-2 focus:ring-purple-300 focus:ring-offset-2; 
+}
+.theme-4 { 
+  @apply bg-orange-600 text-white hover:bg-orange-700 focus:ring-2 focus:ring-orange-300 focus:ring-offset-2; 
+}
+.theme-5 { 
+  @apply bg-pink-600 text-white hover:bg-pink-700 focus:ring-2 focus:ring-pink-300 focus:ring-offset-2; 
+}
+
+.lesson-card {
+  @apply p-4 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer bg-white;
+}
+
+.main-heading {
+  @apply text-4xl font-bold mb-8 text-center;
+}
+
+.button-large {
+  @apply px-6 py-3 text-lg font-semibold rounded-lg transition-all duration-300;
+}
+
+/* Improved text contrast */
+.text-contrast {
+  @apply text-gray-900 dark:text-white;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .theme-card {
+    @apply border-2 border-black;
+  }
+  
+  .button-large {
+    @apply border-2 border-black;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* SUPPORT NEXTJS ERROR UI */
+nextjs-portal {
+  display: none;
+}
